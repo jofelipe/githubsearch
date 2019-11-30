@@ -85,7 +85,7 @@ function secondStep() {
 
     //cria o elemento de imagem e atribue o src
     //importante associar o codigo a um e-mail para uso em celulares diferentes
-    qrcode.setAttribute('src', 'https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=150x150&chld=M|0&cht=qr&chl=otpauth://totp/' + inputEmail.value + '%3Fsecret%3D' + customString);
+    qrcode.setAttribute('src', 'https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=150x150&chld=M|0&cht=qr&chl=otpauth://totp/' + inputEmail.value + '%3Fsecret%3D' + customString + '&issuer=GitHub%20Search');
 
     //exibe a div para autenticação da key
     document.querySelector('#step1').style.display = 'none';
@@ -132,7 +132,7 @@ btnSearch.onclick = function() {
                 } else {
                     //exibir mensagem de erro
                     document.querySelector('#step1 .error-message').innerHTML = '';
-		    		var errorMessage = document.createTextNode('Erro na requisição');
+                    var errorMessage = document.createTextNode('Erro na requisição');
 					document.querySelector('#step1 .error-message').appendChild(errorMessage);
 					document.querySelector('#step1 .error-message').className += ' active';
                 }
@@ -209,12 +209,19 @@ btnLogin.onclick = function() {
 //resetar e pesquisar por um novo usuario
 reset.onclick = function() {
 
-    //ocultar todas as divs com class "step" usando javascript puro
+    //ocultar todas as divs com class "step"
     var stepClasses = document.querySelectorAll('.step');
     for (var i = 0; i < stepClasses.length; i++) {
         stepClasses[i].style.display = 'none';
     }
 
+    //limpar todas as mensagens de erro
+    var errorMessages = document.querySelectorAll('.error-message');
+    for (var i = 0; i < errorMessages.length; i++) {
+        errorMessages[i].innerHTML = '';
+    }
+
+    document.querySelectorAll('.error-message').innerHTML = '';
     document.querySelector('#step1').style.display = 'block';
     inputUser.value = '';
     inputUser.focus();
@@ -226,3 +233,21 @@ reset.onclick = function() {
     document.querySelector('.user-profile .followers').innerHTML = '';
     document.querySelector('.user-profile .following').innerHTML = '';
 }
+
+//acessibilidade, uso da tecla "enter" ao invés de clicar
+//step1
+inputEmail.addEventListener('keyup', function(event) {
+    event.preventDefault();
+    //se teclar "enter"
+    if (event.keyCode === 13) {
+        btnSearch.click();
+    }
+});
+//step2
+inputKey.addEventListener('keyup', function(event) {
+    event.preventDefault();
+    //se teclar "enter"
+    if (event.keyCode === 13) {
+        btnLogin.click();
+    }
+});

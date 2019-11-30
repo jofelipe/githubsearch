@@ -42,6 +42,6 @@ body { background: #eee; font-family: 'Roboto', Arial, sans-serif }
 
 	/* stats */
 	.user-stats { margin: 0 auto; display: table }
-	.user-stats ul { display: flex}
-	.user-stats li { list-style: none; font-size: 12px;	padding: 0 10px; color: #333 }
+	.user-stats ul { display: flex }
+	.user-stats li { list-style: none; font-size: 12px; padding: 0 10px; color: #333 }
 	.user-stats span { font-weight: 700; font-size: 20px; display: block }

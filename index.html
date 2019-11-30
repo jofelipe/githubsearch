@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>GitHub Account Search</title>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,900&display=swap" />
+		<link rel="stylesheet" href="app.css" />
+    </head>
+    <body>
+
+        <main>
+            <div class="container">
+                <div class="app-title">
+					<h1>GitHub Account Search</h1>
+                	<p>Usando Google Authenticator para buscar informações de um usuário no GitHub</p>
+				</div>
+                <div class="step" id="step1">
+					<span class="error-message"></span>
+                    <input type="text" class="input-control input-user" placeholder="Digite um usuário do GitHub" />
+                    <input type="email" class="input-control input-email" placeholder="Digite seu e-mail" />
+                    <button class="btn btn-search">Pesquisar</button>
+                </div>
+                <div class="step" id="step2" style="display: none">
+					<img class="qrcode" src="" alt="" />
+					<p class="inspect">Escaneie o QR Code acima com o Google Authenticator</p>
+					<span class="error-message"></span>
+                    <input type="password" class="input-control input-key" placeholder="Digite o código de autenticação" />
+                    <button class="btn btn-login">Entrar</button>
+                </div>
+                <div class="step" id="step3" style="display: none">
+                    <section class="user-profile">
+                        <img src="" alt="" />
+                        <div class="user-info">
+                            <h2></h2>
+                            <p class="bio"></p>
+                        </div>
+                        <div class="user-stats">
+                            <ul>
+                                <li><span class="repos"></span> repositórios</li>
+                                <li><span class="followers"></span> seguidores</li>
+                                <li><span class="following"></span> seguindo</li>
+                            </ul>
+                        </div>
+                    </section>
+                    <span class="error-message"></span>
+                    <p class="technologies"><b>Tecnologias utilizadas:</b> HTML5, CSS3 e JavaScript</p>
+                    <a href="#" target="_blank" class="btn btn-repo-link">Repositório no GitHub</a>
+                    <a href="javascript:;" class="reset-app">Pesquisar por outro usuário</a>
+                </div>
+            </div>
+        </main>
+     
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://caligatio.github.io/jsSHA/sha.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>

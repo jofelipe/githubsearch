@@ -101,8 +101,8 @@ btnSearch.onclick = function() {
         //exibir mensagem de erro
         document.querySelector('#step1 .error-message').innerHTML = '';
         var errorMessage = document.createTextNode('Digite um usuário');
-		document.querySelector('#step1 .error-message').appendChild(errorMessage);
-		document.querySelector('#step1 .error-message').className += ' active';
+	document.querySelector('#step1 .error-message').appendChild(errorMessage);
+	document.querySelector('#step1 .error-message').className += ' active';
     } else if (inputEmail.value === '') {
         document.querySelector('#step1 .error-message').innerHTML = '';
         var errorMessage = document.createTextNode('Digite seu e-mail');
